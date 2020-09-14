@@ -1,7 +1,6 @@
 <?php
 
 	// Tham khảo thêm tại: https://sudo.vn/chia-se/huong-dan-tich-hop-recaptcha-cua-google-vao-form.html
-
 	if(isset($_POST['submit'])){
 		$name; $captcha;
 
@@ -14,13 +13,13 @@
 			$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LelyckZAAAAAIfVW3NeZCA_fAkHIiJOl2oO28SX&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
 			$js_responsive = json_decode($response);
 
-	       /* echo $response; die();
+	        /* echo $response;
 
 			echo "<pre>";
-			print_r($response);
+			print_r($js_responsive);
 			echo "</pre>"; */
 
-	        if($js_responsive->success == 'false'){ // true is oke
+	        if($js_responsive->success != 1){ // true is oke
 	        	$error = 'SPAM!';
 	        }else{
 	        	echo '<h2 style="color: green;">'.$name.' is not robot, submit success!</h2>';
