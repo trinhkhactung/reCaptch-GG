@@ -1,2 +1,2 @@
 # reCaptch-GG
-Chống spam khi submit dữ liệu tư form
+Chống spam khi submit dữ liệu từ form
